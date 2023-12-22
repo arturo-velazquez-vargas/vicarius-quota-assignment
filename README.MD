@@ -106,3 +106,20 @@ They provide isolation, portability, scalability, and reproducibility benefits.
 Lombok reduces code verbosity and enhances productivity in Java development.
 It offers concise code, a builder pattern for object creation, reduced error-prone code,
 and increased developer productivity.
+
+## Alternative third party solutions for Quota Management
+
+### Guava Rate Limiter:
+Guava, a popular Java library, provides a Rate Limiter component that allows
+you to control the rate at which events occur, which can be used to implement request quotas.
+It offers a simple and efficient way to limit access to resources based on a predefined rate.
+
+### Spring Security:
+Spring Security offers robust mechanisms for access control and rate limiting.
+It can be configured to restrict the number of requests a user can make within a specific time frame, making it a viable alternative for quota management.
+
+### Amazon API Gateway:
+For cloud-based solutions, Amazon API Gateway offers built-in rate limiting
+and throttling features. It allows  to define request quotas,
+burst rates, and other access control policies for  APIs without the
+need for custom code.
