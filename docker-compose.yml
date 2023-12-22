@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  mysql:
+    platform: linux/amd64
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'vicarius'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: '3B<WR~QndZZ%1l4'
+      MYSQL_ROOT_PASSWORD: '3B<WR~QndZZ%1l4'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.1
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+volumes:
+  mysql_data:
+  esdata:
+  redis_data:
