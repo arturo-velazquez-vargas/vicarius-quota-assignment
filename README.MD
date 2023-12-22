@@ -36,7 +36,7 @@ and during the night (5:01 PM to 8:59 AM UTC), user data is sourced from Elastic
 ## Running Locally
 1. Clone project 
 ```sh
-git clone <https://github.com/arturo-velazquez-vargas/vicarius-quota-assignment.git
+git clone https://github.com/arturo-velazquez-vargas/vicarius-quota-assignment.git
 cd vicarius-quota-assignment
 ```
 
