@@ -71,6 +71,16 @@ In the implementation of the Quota Management System, the choice of Redis as the
 - Real-time Quota Updates: Redis's in-memory nature allows for real-time updates to user quotas.  This ensures that users receive accurate and up-to-date quota information, enhancing the overall user experience.
 - Redis, with its Time-To-Live (TTL) feature, automates the lifecycle management of user quotas, ensuring that quota limits are automatically reset at defined intervals, simplifying administration and enhancing user experience.
 
+### Max Request Configuration
+
+The maximum number of requests per user is set to 5 but can be changed
+by modifying the QuotaService.MAX_REQUESTS constant.
+
+### Quota Expiry
+
+After the first quota consumption, users have a Redis TTL of 5 minutes (configurable for testing).
+To adjust the block duration, modify QuotaService.HOUR_T0_EXPIRE, QuotaService.MINUTE_TO_EXPIRE, and QuotaService.SECOND_TO_EXPIRE constants according to business needs.
+
 ## Design patterns implemented 
 
 ### Strategy
