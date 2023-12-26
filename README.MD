@@ -33,7 +33,7 @@ and during the night (5:01 PM to 8:59 AM UTC), user data is sourced from Elastic
 - Redis
 - Lombok
 
-## Running Locally
+## Running Locally option 1
 1. Clone project 
 ```sh
 git clone https://github.com/arturo-velazquez-vargas/vicarius-quota-assignment.git
@@ -58,6 +58,46 @@ mvn clean install
 
 In the root of the project there is a POSTMAN collection to be imported in Postman to test
 the endpoints regarding CRUD, quotaConsume and getUserQuota
+
+## Running Locally option 2
+1. Clone project
+```sh
+git clone https://github.com/arturo-velazquez-vargas/vicarius-quota-assignment.git
+cd vicarius-quota-assignment
+```
+
+2. Start the required services (MySQL, Redis, Elasticsearch) using Docker Compose:
+   Before running the Quota Management System, it's essential to ensure that all
+   required services are up and running. This step involves starting the MySQL database,
+   Redis cache, and Elasticsearch service, which are critical components for the system's data storage and quota management functionalities.
+   Use Docker Compose to conveniently launch these services in an isolated environment
+
+```sh
+docker-compose up -d
+```
+
+3. Run the Application:
+There are two options to run the application using the JAR file:
+ 
+#### Option 3.1: Using the JAR in the Target Folder
+After cloning the project, you can find the JAR file in the target directory. Run it with the following command:
+
+```sh
+java -jar -Dspring.profiles.active=local target/vicarius-quota-0.0.1-SNAPSHOT.jar
+```
+
+#### Option 3.2: Using the JAR Attached in the Email
+The JAR file is attached in the  email, place it in a convenient directory and run it with the following command:
+
+```sh
+java -jar -Dspring.profiles.active=local vicarius-quota-0.0.1-SNAPSHOT.jar
+```
+
+4. Test the Application:
+After starting the application, it will be available on port 8080. To test the API endpoints:
+
+Import the Postman collection provided in the root of the project into Postman or in the email.
+Vicarius.postman_collection.json
 
 ## Considerations in Quota Management
 
