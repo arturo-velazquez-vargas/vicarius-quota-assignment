@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 public class QuotaService {
 
     private static final int MAX_REQUESTS = 5; // Max number of requests per user
-    private static final int END_OF_DAY_HOUR = 0;
-    private static final int END_OF_DAY_MINUTE = 1;
-    private static final int END_OF_DAY_SECOND = 0;
+    private static final int HOUR_T0_EXPIRE = 0;
+    private static final int MINUTE_TO_EXPIRE = 5;
+    private static final int SECOND_TO_EXPIRE = 0;
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -89,7 +89,7 @@ public class QuotaService {
     }
 
     private void setExpiryTimeInSeconds(String key) {
-        long seconds = (END_OF_DAY_HOUR * 3600L) + (END_OF_DAY_MINUTE * 60L) + END_OF_DAY_SECOND;
+        long seconds = (HOUR_T0_EXPIRE * 3600L) + (MINUTE_TO_EXPIRE * 60L) + SECOND_TO_EXPIRE;
         stringRedisTemplate.expire(key, seconds, TimeUnit.SECONDS);
         log.info("Expiry for key '{}' set to {} seconds", key, seconds);
     }
